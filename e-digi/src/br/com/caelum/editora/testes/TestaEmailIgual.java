@@ -1,17 +1,15 @@
 package br.com.caelum.editora.testes;
 
-import br.com.caelum.editora.exceptions.EmailIgualException;
-import br.com.caelum.editora.exceptions.EmailInvalidoException;
-import br.com.caelum.editora.exceptions.NomeVazioException;
-import br.com.caelum.editora.modelos.Sistema;
+import br.com.caelum.editora.controllers.AutorController;
+import br.com.caelum.editora.dao.AutorDao;
 
 public class TestaEmailIgual {
 
-	public static void main(String[] args) throws NomeVazioException, EmailInvalidoException, EmailIgualException {
-		Sistema sistema = new Sistema();
-		sistema.Adiciona("Carlos", "carlos12@gmail.com");
-		sistema.Adiciona("Carlinhos", "carlos12@gmail.com");
-
+	public static void main(String[] args){
+		AutorDao dao = new AutorDao();
+		AutorController controller = new AutorController(dao);
+		controller.cadastraAutor("Carlos", "carlos12@gmail.com");
+		controller.cadastraAutor("Carlão", "carlos12@gmail.com");
 	}
 
 }
