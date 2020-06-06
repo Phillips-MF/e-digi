@@ -7,7 +7,7 @@ public class CadastroDeAutor {
 
 	public static void main(String[] args) {
 		Autor autor = new Autor("Felipe", "felipe12@gmail.com");
-		System.out.println(autor.getNome());
+		System.out.println(autor);
 	}
 
 }
