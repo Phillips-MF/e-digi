@@ -12,8 +12,12 @@ public class TestaEmailIgual {
 		Autor autor2 = new Autor("Carls", "carlos12@gmail.com");
 		dao.adiciona(autor);
 		System.out.println(autor);
-		dao.adiciona(autor2);
-		System.out.println(autor2);
+		try {
+			dao.adiciona(autor2);
+		} catch (AutorJaExisteException e) {
+			System.out.println(e.getMessage());
+		}
+		
 
 	}
 }
