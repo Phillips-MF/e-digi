@@ -24,10 +24,6 @@ public class Autor {
 		this.email = email;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
 	private void validaEmail(String email) {
 		if (!email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
 			throw new IllegalArgumentException("Email com formato errado");
