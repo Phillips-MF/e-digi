@@ -1,7 +1,6 @@
 package br.com.caelum.editora.testes;
 
 import br.com.caelum.editora.dao.AutorDao;
-import br.com.caelum.editora.exceptions.AutorJaExisteException;
 import br.com.caelum.editora.modelos.Autor;
 
 public class TestaEmailIgual {
@@ -14,10 +13,9 @@ public class TestaEmailIgual {
 		System.out.println(autor);
 		try {
 			dao.adiciona(autor2);
-		} catch (AutorJaExisteException e) {
+		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 		}
-		
 
 	}
 }
