@@ -10,25 +10,22 @@ public class Autor {
 	}
 
 	private void setNome(String nome) {
-		verificaSeTemTexto(nome, "Campo nome não pode ser vazio");
+		if (nome == null || nome.isEmpty()) {
+			throw new IllegalArgumentException("Campo nome não pode ser vazio.");
+		}
 		this.nome = nome;
 	}
 
 	private void setEmail(String email) {
-		verificaSeTemTexto(email, "Campo email não pode ser vazio");
+		if (email == null || email.isEmpty()) {
+			throw new IllegalArgumentException("Campo email não pode ser vazio.");
+		}
 		validaEmail(email);
 		this.email = email;
 	}
 
 	public String getEmail() {
 		return email;
-	}
-
-	private void verificaSeTemTexto(String input, String message) {
-		if (input == null || input.isEmpty()) {
-			throw new IllegalArgumentException(message);
-		}
-
 	}
 
 	private void validaEmail(String email) {
@@ -51,7 +48,7 @@ public class Autor {
 		if (getClass() != obj.getClass())
 			return false;
 		Autor other = (Autor) obj;
-		
+
 		return email.equals(other.email);
 	}
 
