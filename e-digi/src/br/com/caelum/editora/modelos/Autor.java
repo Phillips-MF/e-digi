@@ -1,19 +1,15 @@
 package br.com.caelum.editora.modelos;
 
 public class Autor {
-	private String nome;
+	private final String nome;
 	private String email;
 
 	public Autor(String nome, String email) {
-		setNome(nome);
-		setEmail(email);
-	}
-
-	private void setNome(String nome) {
 		if (nome == null || nome.isEmpty()) {
 			throw new IllegalArgumentException("Campo nome não pode ser vazio.");
 		}
 		this.nome = nome;
+		setEmail(email);
 	}
 
 	private void setEmail(String email) {

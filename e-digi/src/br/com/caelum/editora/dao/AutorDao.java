@@ -10,7 +10,7 @@ public class AutorDao {
 	private static Set<Autor> listaAutores = new HashSet<>();
 
 	public void adiciona(Autor autor) {
-		if (!listaAutores.add(autor)) {
+		if (!AutorDao.listaAutores.add(autor)) {
 			throw new RuntimeException("Autor já existe no sistema");
 		}
 
