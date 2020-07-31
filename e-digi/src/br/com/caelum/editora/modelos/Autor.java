@@ -1,14 +1,18 @@
 package br.com.caelum.editora.modelos;
 
+import java.time.Instant;
+
 public class Autor {
 	private final String nome;
 	private String email;
+	private final Instant criadoEm;
 
 	public Autor(String nome, String email) {
 		if (nome == null || nome.isEmpty()) {
 			throw new IllegalArgumentException("Campo nome não pode ser vazio.");
 		}
 		this.nome = nome;
+		this.criadoEm = Instant.now();
 		setEmail(email);
 	}
 
