@@ -3,8 +3,8 @@ package br.com.caelum.editora.modelos;
 import java.time.Instant;
 
 public class Categoria {
-	private final String nome;
-	private final Instant criadoEm;
+	private  String nome;
+	private  Instant criadoEm;
 
 	public Categoria(String nome) {
 		if (nome == null || nome.isEmpty()) {

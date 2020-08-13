@@ -3,9 +3,9 @@ package br.com.caelum.editora.modelos;
 import java.time.Instant;
 
 public class Autor {
-	private final String nome;
+	private  String nome;
 	private String email;
-	private final Instant criadoEm;
+	private  Instant criadoEm;
 
 	public Autor(String nome, String email) {
 		if (nome == null || nome.isEmpty()) {
