@@ -32,7 +32,7 @@ public class Autor {
 
 	@Override
 	public String toString() {
-		return "Nome: " + nome + " | " + "Email: " + email;
+		return "Nome do autor: " + nome + " | " + "Email: " + email;
 	}
 
 	@Override
