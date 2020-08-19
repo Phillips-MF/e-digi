@@ -17,67 +17,78 @@ public class Livro {
 	private BigDecimal preco;
 	private Instant criadoEm;
 	
-	public Livro() {
+	public Livro(String titulo, String resumo, String sumario, int paginas, String isbn, Autor autor,
+			Categoria categoria, int edicao, BigDecimal preco) {
+		
+		this.setTitulo(titulo); 
+		this.setResumo(resumo); 
+		this.setSumario(sumario); 
+		this.setPaginas(paginas); 
+		this.setIsbn(isbn); 
+		this.setAutor(autor); 
+		this.setCategoria(categoria); 
+		this.setEdicao(edicao); 
+		this.setPreco(preco);
 		this.criadoEm = Instant.now();
 	}
-	
-	public void setTitulo(String titulo) {
+
+	private void setTitulo(String titulo) {
 		if(titulo == null || titulo.isEmpty()) {
 			throw new IllegalArgumentException("Campo título não pode ser vazio");
 		}
 		this.titulo = titulo;
 	}
 
-	public void setResumo(String resumo) {
+	private void setResumo(String resumo) {
 		if(resumo == null || resumo.length() < Livro.TAMANHO_MINIMO_DO_RESUMO) {
 			throw new IllegalArgumentException("O resumo precisa ter pelo menos " + Livro.TAMANHO_MINIMO_DO_RESUMO + " caracteres");
 		}
 		this.resumo = resumo;
 	}
 
-	public void setSumario(String sumario) {
+	private void setSumario(String sumario) {
 		if(sumario == null || sumario.isEmpty()) {
 			throw new IllegalArgumentException("O sumário não pode ser vazio");
 		}
 		this.sumario = sumario;
 	}
 
-	public void setPaginas(int paginas) {
+	private void setPaginas(int paginas) {
 		if(paginas <= 0) {
 			throw new IllegalArgumentException("O número de páginas precisa ser maior que 0");
 		}
 		this.paginas = paginas;
 	}
 
-	public void setIsbn(String isbn) {
+	private void setIsbn(String isbn) {
 		if(isbn == null || !isbn.matches("978-\\d-\\d{2}-\\d{6}-\\d")) {
 			throw new IllegalArgumentException("O isbn está com um formato inválido");
 		}
 		this.isbn = isbn;
 	}
 
-	public void setAutor(Autor autor) {
+	private void setAutor(Autor autor) {
 		if(autor == null) {
 			throw new IllegalArgumentException("O livro precisa de um autor");
 		}
 		this.autor = autor;
 	}
 
-	public void setCategoria(Categoria categoria) {
+	private void setCategoria(Categoria categoria) {
 		if(categoria == null) {
 			throw new IllegalArgumentException("O livro precisa de uma Categoria");
 		}
 		this.categoria = categoria;
 	}
 
-	public void setEdicao(int edicao) {
+	private void setEdicao(int edicao) {
 		if(edicao <= 0) {
 			throw new IllegalArgumentException("O número da edição não pode ser menor que 1");
 		}
 		this.edicao = edicao;
 	}
 
-	public void setPreco(BigDecimal preco) {
+	private void setPreco(BigDecimal preco) {
 		if(preco.compareTo(BigDecimal.ZERO) == -1) {
 			throw new IllegalArgumentException("O valor do preço não pode ser negativo");
 		}
