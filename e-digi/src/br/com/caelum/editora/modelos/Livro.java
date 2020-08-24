@@ -60,6 +60,7 @@ public class Livro {
 		this.paginas = paginas;
 	}
 
+	
 	private void setIsbn(String isbn) {
 		if(isbn == null || !isbn.matches("978-\\d-\\d{2}-\\d{6}-\\d")) {
 			throw new IllegalArgumentException("O isbn está com um formato inválido");
@@ -94,6 +95,39 @@ public class Livro {
 		}
 		this.preco = preco;
 	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getResumo() {
+		return resumo;
+	}
+
+	public String getSumario() {
+		return sumario;
+	}
+
+	public int getPaginas() {
+		return paginas;
+	}
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public int getEdicao() {
+		return edicao;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
 
 	@Override
 	public int hashCode() {
