@@ -5,11 +5,9 @@ import java.math.BigDecimal;
 import br.com.caelum.editora.dao.AutorDao;
 import br.com.caelum.editora.dao.CategoriaDao;
 import br.com.caelum.editora.dao.LivroDao;
-import br.com.caelum.editora.dto.LivroView;
 import br.com.caelum.editora.modelos.Autor;
 import br.com.caelum.editora.modelos.Categoria;
 import br.com.caelum.editora.modelos.Livro;
-import br.com.caelum.editora.services.PesquisadorDeLivros;
 
 public class TestePesquisaLivroPorTitulo {
 	public static void main(String[] args) {
@@ -34,27 +32,27 @@ public class TestePesquisaLivroPorTitulo {
 		autorDao.adiciona(autor);
 		categoriaDao.adiciona(categoria);
 	
-		PesquisadorDeLivros pesquisador = new PesquisadorDeLivros(livroDao);
-		LivroView resultadoLivro = pesquisador.pesquisaPorTitulo("Java 8 Prático");
-		System.out.println(resultadoLivro);
+		
+		Livro resultadoLivro = livroDao.buscaPorTitulo("Java 8 Prático");
+		System.out.println(resultadoLivro.informacoesDePesquisa());
 		
 		try {
-			pesquisador.pesquisaPorTitulo("");
+			livroDao.buscaPorTitulo("");
 		} catch(IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 		}
 		try {
-			pesquisador.pesquisaPorTitulo(null);
+			livroDao.buscaPorTitulo(null);
 		} catch(IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 		}
 		try {
-			pesquisador.pesquisaPorTitulo("J");
+			livroDao.buscaPorTitulo("J");
 		} catch(IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 		}
 		try {
-			pesquisador.pesquisaPorTitulo("Java e O.O");
+			livroDao.buscaPorTitulo("Java e O.O");
 		} catch(IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 		}

@@ -2,6 +2,8 @@ package br.com.caelum.editora.modelos;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 public class Livro {
 	private static final int TAMANHO_MINIMO_DO_RESUMO = 500;
@@ -95,40 +97,14 @@ public class Livro {
 		}
 		this.preco = preco;
 	}
+	public String informacoesDePesquisa() {
+		return "Título: " + this.titulo + " | Autor: " + this.autor + " | Ano de publicação: " + LocalDateTime.ofInstant(criadoEm, ZoneOffset.systemDefault()).getYear()+ " | Edicação: " + this.edicao + " | Categoria: " + this.categoria + " | Preço" + this.preco + " | Número de páginas" + this.paginas + " | Resumo: " + this.resumo + " | Sumário: " + this.sumario;  
+	}
 	
 	public String getTitulo() {
-		return titulo;
+		return this.titulo;
 	}
-
-	public String getResumo() {
-		return resumo;
-	}
-
-	public String getSumario() {
-		return sumario;
-	}
-
-	public int getPaginas() {
-		return paginas;
-	}
-
-	public Autor getAutor() {
-		return autor;
-	}
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public int getEdicao() {
-		return edicao;
-	}
-
-	public BigDecimal getPreco() {
-		return preco;
-	}
-
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
