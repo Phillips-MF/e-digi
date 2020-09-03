@@ -2,6 +2,8 @@ package br.com.caelum.editora.modelos;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 public class Livro {
 	private static final int TAMANHO_MINIMO_DO_RESUMO = 500;
@@ -60,6 +62,7 @@ public class Livro {
 		this.paginas = paginas;
 	}
 
+	
 	private void setIsbn(String isbn) {
 		if(isbn == null || !isbn.matches("978-\\d-\\d{2}-\\d{6}-\\d")) {
 			throw new IllegalArgumentException("O isbn está com um formato inválido");
@@ -94,7 +97,14 @@ public class Livro {
 		}
 		this.preco = preco;
 	}
-
+	public String informacoesDePesquisa() {
+		return "Título: " + this.titulo + " | Autor: " + this.autor + " | Ano de publicação: " + LocalDateTime.ofInstant(criadoEm, ZoneOffset.systemDefault()).getYear()+ " | Edicação: " + this.edicao + " | Categoria: " + this.categoria + " | Preço" + this.preco + " | Número de páginas" + this.paginas + " | Resumo: " + this.resumo + " | Sumário: " + this.sumario;  
+	}
+	
+	public String getTitulo() {
+		return this.titulo;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
