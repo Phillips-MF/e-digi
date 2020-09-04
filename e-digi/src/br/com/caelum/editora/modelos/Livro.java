@@ -105,6 +105,11 @@ public class Livro {
 		return this.titulo;
 	}
 	
+	public BigDecimal getPreco() {
+		return this.preco;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
